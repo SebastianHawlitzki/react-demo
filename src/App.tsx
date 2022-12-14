@@ -4,6 +4,7 @@ import './App.css';
 import Greeting from "./Greeting";
 import axios from "axios";
 import CharacterGallery from "./CharacterGallery";
+import AsyncDemo from "./AsyncDemo";
 
 /*
 function axiosDemo (){
@@ -48,12 +49,12 @@ export default function App() {
      */
 
 
-
+   // <CharacterGallery></CharacterGallery>
   return (
 
       <>
-          <CharacterGallery></CharacterGallery>
 
+<AsyncDemo></AsyncDemo>
 
       </>
 

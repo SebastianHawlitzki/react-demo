@@ -36,8 +36,7 @@ export default function CharacterGallery() {
 
     useEffect(() => {
         axios.get("https://rickandmortyapi.com/api/character")
-            .then(response => response.data)
-            .then((data) => setCharacters(data.results))
+            .then(response => setCharacters(response.data.results) )
             .catch(e => console.error(e))
 
     }, [])
