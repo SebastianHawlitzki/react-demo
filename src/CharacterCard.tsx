@@ -5,7 +5,8 @@ export default function CharacterCard(props: {
     name: string
     origin: string
     image: string
-
+// onLike
+    //onDelete
 
 }) {
 

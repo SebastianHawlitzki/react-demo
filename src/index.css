@@ -18,7 +18,7 @@ code {
 }
 
 .card {
-
+margin: 1rem;
 
 }
 
@@ -39,3 +39,7 @@ code {
 
 }
 
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+}

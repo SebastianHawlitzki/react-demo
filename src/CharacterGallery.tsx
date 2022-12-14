@@ -1,8 +1,50 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CharacterCard from "./CharacterCard";
+import axios from "axios";
 
 
 export default function CharacterGallery() {
+    type Character = {
+        id: number,
+        name: string,
+        status: string
+        species: string,
+        type: string,
+        gender: string
+        origin: Origin,
+        location: Location,
+        image: string,
+        episode: string[],
+        url: string,
+        created: string
+
+
+    }
+
+    type Origin = {
+        name: string,
+        url: string
+    }
+
+    type Location = {
+        name: string
+        url: string
+    }
+
+
+    const [characters, setCharacters] = useState<Character[]>([]);
+
+    useEffect(() => {
+        axios.get("https://rickandmortyapi.com/api/character")
+            .then(response => response.data)
+            .then((data) => setCharacters(data.results))
+            .catch(e => console.error(e))
+
+    }, [])
+
+    const [filter, setFilter] = useState<string>("");
+
+    const characterFilter = characters.filter((name)=> name.name.includes(filter))
 
     const characterList = [
         {
@@ -1129,17 +1171,24 @@ export default function CharacterGallery() {
             "url": "https://rickandmortyapi.com/api/character/40",
             "created": "2017-11-05T10:02:26.701Z"
         }
-    ]
+    ] // = useState zum umwandeln
 
     return (
         <>
-            <ul>
-                {characterList.map(character => (
-                    <CharacterCard name={character.name} origin={character.origin.name} image={character.image}></CharacterCard>
+            <br/>
+            <div>
+                <input onChange={(input) => setFilter(input.target.value)}/>
+                <h3>{filter}</h3>
+            </div>
+
+            <br/>
+            <div className={"characters"}>
+                {characterFilter.map(character => (
+                    <CharacterCard name={character.name} origin={character.origin.name}
+                                   image={character.image}></CharacterCard>
                 ))}
 
-            </ul>
-
+            </div>
 
 
         </>
