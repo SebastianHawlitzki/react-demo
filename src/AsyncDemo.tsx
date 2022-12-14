@@ -28,9 +28,11 @@ console.log(characters)
 
     return (
         <>
-<div>
+<div className={"character-list"}>
    <ul>{characters.map(character =>
-       <li key={character.id}>{character.name} Status: {character.status}</li>)}
+       <li key={character.id}>{character.name}
+            Status: {character.status}</li>)}
+
    </ul>
 
 </div>
