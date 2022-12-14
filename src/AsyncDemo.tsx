@@ -29,7 +29,9 @@ console.log(characters)
     return (
         <>
 <div>
-   <ul>{characters.map(character => (character.name) )}</ul>
+   <ul>{characters.map(character =>
+       <li key={character.id}>{character.name} Status: {character.status}</li>)}
+   </ul>
 
 </div>
 
