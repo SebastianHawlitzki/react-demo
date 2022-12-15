@@ -54,8 +54,7 @@ export default function App() {
 
       <>
 
-<AsyncDemo></AsyncDemo>
-
+          <AsyncDemo></AsyncDemo>
       </>
 
 
